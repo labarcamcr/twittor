@@ -1,7 +1,15 @@
 
+var url = window.location.href;
+var swLocation = '/twittor/sw.js';
+
 //  v4  Open SW
-if( navigator.serviceWorker){
-    navigator.serviceWorker.register('/sw.js');
+if( navigator.serviceWorker)
+{
+    if( url.includes('localhost')){
+
+        swLocation = '/sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);
 }
 
 
